@@ -1,11 +1,14 @@
 #child class
 from Player import Player
+import random
 
-class AI(Player):
-    def __init__(self):
-        super().__init__('Beep-Boop')
+class Ai(Player):
+    def __init__(self,name):
+        super().__init__(name)
         self.age = 150
         pass
 
     def choose_skill(self):
-        print('Computer has made their choice')
+        self.selected_move = random.choice(self.skills_list)
+        print(f'{self.name} chose {self.selected_move} as their first move!')
+        pass
