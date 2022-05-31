@@ -5,5 +5,5 @@ class Game:
         self.human = None
         self.ai = None
 
-    def run_game():
+    def run_game(self):
         print("Let's get ready to rumble!")
