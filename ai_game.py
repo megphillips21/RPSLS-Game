@@ -4,6 +4,7 @@ class Ai_game:
     def __init__(self):
         self.ai_one = Ai()
         self.ai_two = Ai()
+        self.game = self.ai_vs_ai()
         pass
 
     def ai_vs_ai_moves(self):

@@ -4,6 +4,7 @@ class Human_game:
     def __init__(self):
         self.player_one = Human(input("Enter name for Player One! "))
         self.player_two = Human(input('Enter name for Player Two! '))
+        self.game = self.human_vs_human()
 
     def human_vs_human_moves(self):
         self.player_one.choose_skill()
@@ -91,9 +92,9 @@ class Human_game:
 
     def human_vs_human(self):
         while self.player_one.current_score < 2 and self.player_two.current_score < 2:
-            self.ai_vs_ai_moves()
+             self.human_vs_human_moves()
         if self.player_one.current_score == 2:
-            print(f'We have a winner!! {self.player_one.name} wins!!')
+             print(f'We have a winner!! {self.player_one.name} wins!!')
         elif self.player_two.current_score == 2:
-            print(f'We have a winner!! {self.player_two.name} wins!!')
+             print(f'We have a winner!! {self.player_two.name} wins!!')
         pass
