@@ -19,7 +19,7 @@ class Game:
             self.human = Human(input('Enter your name, Human! '))   
             self.ai = Ai()
         elif game_type == 3:
-            self.ai.one = Ai()
+            self.ai_one = Ai()
             self.ai.two = Ai()
 
         
@@ -37,19 +37,19 @@ class Game:
         # determine a tie
         if self.human.selected_move == "Rock" and self.ai.selected_move == "Rock":
             print("It's a tie, pick again")
-            self.pick_first_skill()
+            self.ai_human_moves()
         elif self.human.selected_move == "Paper" and self.ai.selected_move == "Paper":
             print("It's a tie, pick again")
-            self.pick_first_skill()
+            self.ai_human_moves()
         elif self.human.selected_move == "Scissors" and self.ai.selected_move == "Scissors":
             print("It's a tie, pick again")
-            self.pick_first_skill()
+            self.ai_human_moves()
         elif self.human.selected_move == "Lizard" and self.ai.selected_move == "Lizard":
             print("It's a tie, pick again")
-            self.pick_first_skill()
+            self.ai_human_moves()
         elif self.human.selected_move == "Spock" and self.ai.selected_move == "Spock":
             print("It's a tie, pick again")
-            self.pick_first_skill()
+            self.ai_human_moves()
 
         # determine points for human player
         # Human = Rock and AI picks Scissors or Lizard point Human
@@ -125,5 +125,5 @@ class Game:
         elif self.ai.current_score == 2:
             print(f'We have a winner!! {self.ai.name} wins!!')
         pass
-    def game_round(self):
+    def ai_vs_ai(self):
         pass
