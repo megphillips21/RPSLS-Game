@@ -14,4 +14,5 @@ class Human(Player):
         user_input = int(input(f'{self.name} please make pick your first move! '))
         self.selected_move = self.skills_list[user_input-1]
         print(f'{self.name} has made their choice! They picked {self.selected_move}!')
+        
         pass
