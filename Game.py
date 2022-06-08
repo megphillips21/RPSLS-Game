@@ -36,12 +36,12 @@ class Game:
         # Human = Rock and AI picks Scissors or Lizard point Human
         elif self.human.selected_move == "Rock" and self.ai.selected_move == "Scissors" or self.ai.selected_move == "Lizard":
             print(f"{self.human.selected_move} beats {self.ai.selected_move}! Point for {self.human.name}")
-            self.player.human.add_point()
+            self.human.add_point()
             print(f'Current Score:{self.human.name} = {self.human.current_score}')
             print(f'Current Score:{self.ai.name} = {self.ai.current_score}')
 
         # Human = Rock and AI picks paper or spock, point AI
-        elif self.human.selected_move == "Rock" and self.ai.selected_move == "Paper" or self.ai.selected_move == "Spock":
+        elif self.human.selected_move =="Rock" and self.ai.selected_move == "Paper" or self.ai.selected_move == "Spock":
             print(f"{self.human.selected_move} loses to {self.ai.selected_move}! Point for {self.ai.name}")
             self.ai.add_point()
             print(f'Current Score:{self.human.name} = {self.human.current_score}')
@@ -99,6 +99,12 @@ class Game:
             print(f'Current Score:{self.ai.name} = {self.ai.current_score}')
 
     def determine_winner(self ):
+        if self.human.current_score < 2 and self.ai.current_score < 2:
+            self.pick_first_skill()
+        elif self.human.current_score == 2:
+            print(f'We have a winner!! {self.human.name} wins!!')
+        elif self.ai.current_score == 2:
+            print(f'We have a winner!! {self.ai.name} wins!!')
         pass
     def game_round(self):
         pass
