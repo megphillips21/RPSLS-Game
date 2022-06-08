@@ -6,6 +6,7 @@ class Human_Ai_game:
     def __init__(self):
         self.human = Human(input('Enter your name, Human!'))
         self.ai = Ai()
+        self.game = self.ai_vs_human()
 
     def ai_human_moves(self):
         self.human.choose_skill()
