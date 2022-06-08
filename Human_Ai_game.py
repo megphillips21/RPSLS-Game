@@ -1,37 +1,11 @@
-
 from AI import Ai
-from Human_Ai_game import Human_Ai_game
-from ai_game import Ai_game
+from Human import Human
+from AI import Ai
 
-class Game:
+class Human_Ai_game:
     def __init__(self):
-        print('Welcome to Rock, Paper Scissors, Lizard, Spock!')
-        print("             ")
-        print("Here are the rules:\n Scissors cuts Paper\n Paper covers Rock\n Rock crushes Lizard\n Lizard poisons Spock\n Spock smashes Scissors\n Scissors decapitates Lizard\n Lizard eats paper\n Paper disproves Spock\n Spock vaporizes Rock\n and of course, Rock crushes Scissors!")
-        self.games_list = ["Human vs. Human", "Human vs. Computer", "Computer vs. Computer"]
-        for games in self.games_list:
-             print(f'Press {self.games_list.index(games) +1} for {games}')
-        game_type = int(input('How would you like to play? '))
-        self.picked_game = self.games_list[game_type-1]
-        if game_type == 1:
-            self.player_one = Human(input("Enter name for Player One! "))
-            self.player_two = Human(input('Enter name for Player Two! '))
-        elif game_type == 2:
-            self.human = Human(input('Enter your name, Human! '))   
-            self.ai = Ai()
-        elif game_type == 3:
-            Ai_game()
-
-        
-
-    def run_game(self):
-        print("Let's get ready to rumble!")
-        if self.picked_game == "Human vs. Computer":
-            self.ai_vs_human()
-        elif self.picked_game == "Computer vs. Computer":
-            Ai_game ()
-        
-        pass
+        self.human = Human(input('Enter your name, Human!'))
+        self.ai = Ai()
 
     def ai_human_moves(self):
         self.human.choose_skill()
@@ -127,4 +101,3 @@ class Game:
         elif self.ai.current_score == 2:
             print(f'We have a winner!! {self.ai.name} wins!!')
         pass
-    
