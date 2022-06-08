@@ -1,18 +1,37 @@
+
 from AI import Ai
 from Human import Human
 
 class Game:
     def __init__(self):
-        self.human = Human(input("Enter your name!  "))
-        self.ai = Ai(input("Computer would like to know what you call computer. Computer no have name like humans. Thank you, from Computer  "))
+        print('Welcome to Rock, Paper Scissors, Lizard, Spock!')
+        print("             ")
+        print("Here are the rules:\n Scissors cuts Paper\n Paper covers Rock\n Rock crushes Lizard\n Lizard poisons Spock\n Spock smashes Scissors\n Scissors decapitates Lizard\n Lizard eats paper\n Paper disproves Spock\n Spock vaporizes Rock\n and of course, Rock crushes Scissors!")
+        self.games_list = ["Human vs. Human", "Human vs. Computer", "Computer vs. Computer"]
+        for games in self.games_list:
+             print(f'Press {self.games_list.index(games) +1} for {games}')
+        game_type = int(input('How would you like to play? '))
+        self.picked_game = self.games_list[game_type-1]
+        if game_type == 1:
+            self.player_one = Human(input("Enter name for Player One! "))
+            self.player_two = Human(input('Enter name for Player Two! '))
+        elif game_type == 2:
+            self.human = Human(input('Enter your name, Human! '))   
+            self.ai = Ai()
+        elif game_type == 3:
+            self.ai.one = Ai()
+            self.ai.two = Ai()
+
+        
 
     def run_game(self):
         print("Let's get ready to rumble!")
-        self.pick_first_skill()
-        self.determine_winner()
+        if self.picked_game == "Human vs. Computer":
+            self.ai_vs_human()
+        # elif self.picked_game == 2:
         pass
 
-    def pick_first_skill(self):
+    def ai_human_moves(self):
         self.human.choose_skill()
         self.ai.choose_skill()
         # determine a tie
@@ -98,10 +117,10 @@ class Game:
             print(f'Current Score:{self.human.name} = {self.human.current_score}')
             print(f'Current Score:{self.ai.name} = {self.ai.current_score}')
 
-    def determine_winner(self ):
-        if self.human.current_score < 2 and self.ai.current_score < 2:
-            self.pick_first_skill()
-        elif self.human.current_score == 2:
+    def ai_vs_human(self):
+        while self.human.current_score < 2 and self.ai.current_score < 2:
+            self.ai_human_moves()
+        if self.human.current_score == 2:
             print(f'We have a winner!! {self.human.name} wins!!')
         elif self.ai.current_score == 2:
             print(f'We have a winner!! {self.ai.name} wins!!')
